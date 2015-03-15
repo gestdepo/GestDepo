@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+	"-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+	"http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+	<definition name="baseLayout" template="/Tiles/BaseLayout.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="header" value="/Pages/Header.jsp" />
+		<put-attribute name="menu" value="/Pages/Menu.jsp" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer" value="/Pages/Footer.jsp" />
+	</definition>
+	
+	<definition name="/tiles.homeLogin" extends="baseLayout">
+		<put-attribute name="title" value="Home" />
+		<put-attribute name="body" value="/Pages/Home.jsp" />
+	</definition>
+	
+	<definition name="/tiles.homeLogout" extends="baseLayout">
+		<put-attribute name="title" value="Home" />
+		<put-attribute name="body" value="/Pages/index.jsp" />
+	</definition>
+	
+	<definition name="/tiles.test" extends="baseLayout">
+		<put-attribute name="title" value="Home" />
+		<put-attribute name="body" value="/Pages/test.jsp" />
+	</definition>
+	
+</tiles-definitions>
