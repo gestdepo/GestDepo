@@ -6,6 +6,7 @@
 	<definition name="baseLayout" template="/Tiles/BaseLayout.jsp">
 		<put-attribute name="title" value="" />
 		<put-attribute name="header" value="/Pages/Header.jsp" />
+		<put-attribute name="top" value="/Pages/Top.jsp" />
 		<put-attribute name="menu" value="/Pages/Menu.jsp" />
 		<put-attribute name="body" value="" />
 		<put-attribute name="footer" value="/Pages/Footer.jsp" />
@@ -21,8 +22,13 @@
 		<put-attribute name="body" value="/Pages/index.jsp" />
 	</definition>
 	
+	<definition name="/tiles.new.user" extends="baseLayout">
+		<put-attribute name="title" value="New User" />
+		<put-attribute name="body" value="/Pages/User/newUserForm.jsp" />
+	</definition>
+	
 	<definition name="/tiles.test" extends="baseLayout">
-		<put-attribute name="title" value="Home" />
+		<put-attribute name="title" value="Test Page" />
 		<put-attribute name="body" value="/Pages/test.jsp" />
 	</definition>
 	

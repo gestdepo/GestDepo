@@ -27,18 +27,33 @@
 			<interceptor-ref name="loginStack" />
 			<result name="login" type="tiles">/tiles.homeLogout</result>
 			<result name="success" type="tiles">/tiles.homeLogin</result>
+			<result name="input" type="tiles">/tiles.homeLogout</result>
 		</action>
 		
 		<!-- login action -->
 		<action name="loginUser" class="loginActionBean" method="login">
 			<result name="success" type="redirect">homeAction</result>
+			<result name="input" type="tiles">/tiles.homeLogout</result>
 			<result name="login" type="tiles">/tiles.homeLogout</result>
 		</action>
 		
 		<!-- logout action -->
 		<action name="logOut" class="loginActionBean" method="logOut">
-			<result type="tiles">/tiles.homeLogout</result>
+			<result name="input" type="tiles">/tiles.homeLogout</result>
+			<result name="success" type="tiles">/tiles.homeLogout</result>
 		</action>
+		
+		<action name="preCreateUser" class="loginActionBean" method="preCreateUser">
+			<result name="input" type="tiles">/tiles.homeLogout</result>
+			<result name="success" type="tiles">/tiles.new.user</result>
+		</action>
+		
+		<action name="createUser" class="loginActionBean" method="createUser">
+			<result name="input" type="tiles">/tiles.homeLogout</result>
+			<result name="error" type="tiles">/tiles.homeLogout</result>
+			<result name="success" type="redirect">homeAction</result>
+		</action>
+		
 	</package>
 	
 	<package name="tests" extends="custom-default">
