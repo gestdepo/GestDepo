@@ -42,12 +42,12 @@
 	<bean id="personService" class="com.gestdepo.model.service.impl.PersonServiceImpl" />
 	-->
 	
-	<bean id="loginService" class="com.gestdepo.model.service.dummyimpl.LoginServiceImpl" />
+	<bean id="accountService" class="com.gestdepo.model.service.dummyimpl.AccountServiceImpl" />
 	
 	<bean id="testActionBean" scope="prototype" class="com.gestdepo.controller.TestAction" />
 	<bean id="homeActionBean" scope="prototype" class="com.gestdepo.controller.actions.HomeAction" />
 	<bean id="loginActionBean" scope="prototype" class="com.gestdepo.controller.actions.LoginAction" >
-		<property name="loginService" ref="loginService" />
+		<property name="accountService" ref="accountService" />
 	</bean>
 	
 </beans>

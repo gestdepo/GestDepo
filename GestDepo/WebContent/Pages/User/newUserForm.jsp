@@ -14,5 +14,7 @@
 	<s:password id="userPwd" name="userVO.userPwd" key="create.user.password" />
 	<s:password id="userPwd" name="userVO.userPwdRepeat" key="create.user.password.repeat" />
 	
+	<s:checkboxlist id="choosenRols" name="choosenRoles" key="create.user.rols" list="rols" listKey="rolId" listValue="name" />
+	
 	<s:submit />
 </s:form>
