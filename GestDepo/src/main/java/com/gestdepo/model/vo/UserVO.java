@@ -2,12 +2,15 @@ package com.gestdepo.model.vo;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class UserVO extends AccountVO {
 	
 	private String name;
 	private String lastName;
 	private String passwordRepeat;
+	
+	private Locale locale;
 	
 	private List<Rol> rols;
 	
@@ -20,10 +23,12 @@ public class UserVO extends AccountVO {
 		this.setLastName("");
 		this.setPasswordRepeat("");
 		
+		this.setLocale(new Locale(""));
+		
 		this.setRols(new ArrayList<Rol>());
 	}
 
-	public UserVO(String email, String userName, String password, String name, String lastName, String passwordRepeated, List<Rol> rols) {
+	public UserVO(String email, String userName, String password, String name, String lastName, String passwordRepeated, Locale locale, List<Rol> rols) {
 		this.setEmail(email);
 		this.setUserName(userName);
 		this.setPassword(password);
@@ -32,12 +37,14 @@ public class UserVO extends AccountVO {
 		this.setLastName(lastName);
 		this.setPasswordRepeat(passwordRepeated);
 		
+		this.setLocale(locale);
+		
 		this.setRols(rols);
 		
 	}
 
 	public UserVO(UserVO userVO) {
-		new UserVO(userVO.getEmail(), userVO.getUserName(), userVO.getPassword(), userVO.getName(), userVO.getLastName(), userVO.getPasswordRepeat(), userVO.getRols());
+		new UserVO(userVO.getEmail(), userVO.getUserName(), userVO.getPassword(), userVO.getName(), userVO.getLastName(), userVO.getPasswordRepeat(), userVO.getLocale(), userVO.getRols());
 	}
 	
 	public String getName() {
@@ -57,6 +64,12 @@ public class UserVO extends AccountVO {
 	}
 	public void setPasswordRepeat(String passwordRepeat) {
 		this.passwordRepeat = passwordRepeat;
+	}
+	public Locale getLocale() {
+		return locale;
+	}
+	public void setLocale(Locale locale) {
+		this.locale = locale;
 	}
 	public List<Rol> getRols() {
 		return rols;

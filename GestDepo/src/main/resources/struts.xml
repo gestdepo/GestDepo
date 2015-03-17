@@ -5,7 +5,7 @@
 <struts>
 	<constant name="struts.objectFactory" value="spring" />
     <constant name="struts.devMode" value="true" />
-	<constant name="struts.custom.i18n.resources" value="language_es_ES" />
+	<constant name="struts.custom.i18n.resources" value="language" />
 	
 	<package name="custom-default" extends="tiles-default">
 		<interceptors>
@@ -43,18 +43,9 @@
 			<result name="success" type="tiles">/tiles.homeLogout</result>
 		</action>
 		
-		<action name="preCreateUser" class="loginActionBean" method="preCreateUser">
-			<result name="input" type="tiles">/tiles.homeLogout</result>
-			<result name="success" type="tiles">/tiles.new.user</result>
-		</action>
-		
-		<action name="createUser" class="loginActionBean" method="createUser">
-			<result name="input" type="tiles">/tiles.homeLogout</result>
-			<result name="error" type="tiles">/tiles.homeLogout</result>
-			<result name="success" type="redirect">homeAction</result>
-		</action>
-		
 	</package>
+	
+	<include file="struts-account.xml" />
 	
 	<package name="tests" extends="custom-default">
 		<!-- login action -->

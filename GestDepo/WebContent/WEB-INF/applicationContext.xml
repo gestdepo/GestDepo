@@ -50,4 +50,9 @@
 		<property name="accountService" ref="accountService" />
 	</bean>
 	
+	<bean id="accountActionBean" scope="prototype" class="com.gestdepo.controller.actions.AccountAction" >
+		<property name="accountService" ref="accountService" />
+	</bean>
+	
+	
 </beans>

@@ -1,6 +1,8 @@
 package com.gestdepo.model.service.dummyimpl;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
 
 import com.gestdepo.model.exception.NoUserException;
 import com.gestdepo.model.service.AccountService;
@@ -11,7 +13,7 @@ public class AccountServiceImpl implements AccountService {
 
 	@Override
 	public UserVO loginUser(String email, String userName, String pwd) throws NoUserException {
-		return new UserVO(email, userName, pwd, "DummyName", "DummyLastName", "", new ArrayList<Rol>());
+		return new UserVO(email, userName, pwd, "DummyName", "DummyLastName", "", new Locale("ES"), new ArrayList<Rol>());
 	}
 
 	@Override
@@ -22,6 +24,23 @@ public class AccountServiceImpl implements AccountService {
 	@Override
 	public UserVO createAccount(UserVO userVO) {
 		return userVO;
+	}
+
+	@Override
+	public List<Rol> getPossibleRols(Locale locale) {
+		List<Rol> rols = new ArrayList<Rol>();
+		rols.add(new Rol(1, "Coordinator", "ES"));
+		rols.add(new Rol(2, "Coach", "ES"));
+		rols.add(new Rol(3, "Player", "ES"));
+		return rols;
+	}
+
+	@Override
+	public List<Locale> getPossibleLanguages() {
+		List<Locale> languages = new ArrayList<Locale>();
+		languages.add(new Locale("es"));
+		languages.add(new Locale("en"));
+		return languages;
 	}
 
 	
