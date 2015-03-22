@@ -58,10 +58,6 @@ public class AccountAction extends ActionSupport implements SessionAware {
 		
 		session.put("loginId", userVO.getUserName());
 		
-		Locale locale = userVO.getLocale();
-		ActionContext.getContext().setLocale(locale);
-		session.put(I18nInterceptor.DEFAULT_SESSION_ATTRIBUTE, locale);
-		
 		return SUCCESS;
 	}
 	
