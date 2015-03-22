@@ -20,5 +20,6 @@
 		<s:submit />
 	</s:form>
 	
-	<s:a action="preCreateUser" ><s:text name="login.create.user" /></s:a>
+	<s:a action="preCreateUser" id="preCreateUserLink"><s:text name="login.create.user" /></s:a>
+	
 </s:else>

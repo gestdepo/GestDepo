@@ -15,6 +15,5 @@ public interface AccountService {
 	public UserVO createAccount(UserVO userVO);
 	
 	public List<Rol> getPossibleRols(Locale locale);
-	public List<Locale> getPossibleLanguages();
 		
 }

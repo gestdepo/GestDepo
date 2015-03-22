@@ -12,6 +12,7 @@ import org.apache.struts2.interceptor.I18nInterceptor;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.gestdepo.model.service.AccountService;
+import com.gestdepo.model.service.LanguageService;
 import com.gestdepo.model.vo.Rol;
 import com.gestdepo.model.vo.UserVO;
 import com.gestdepo.utils.AccountUtils;
@@ -32,12 +33,12 @@ public class AccountAction extends ActionSupport implements SessionAware {
 	private HttpServletRequest request = ServletActionContext.getRequest();
 	
 	private AccountService accountService;
-	
+	private LanguageService languageService;
 
 	public String preCreateUser() {
 		Locale locale = (Locale)session.get(I18nInterceptor.DEFAULT_SESSION_ATTRIBUTE);
 		
-		this.setLanguages(accountService.getPossibleLanguages());
+		this.setLanguages(languageService.getPossibleLanguages(locale));
 		this.setRols(accountService.getPossibleRols(locale));
 		this.setUserVO(new UserVO());
 		
@@ -56,6 +57,10 @@ public class AccountAction extends ActionSupport implements SessionAware {
 		}
 		
 		session.put("loginId", userVO.getUserName());
+		
+		Locale locale = userVO.getLocale();
+		ActionContext.getContext().setLocale(locale);
+		session.put(I18nInterceptor.DEFAULT_SESSION_ATTRIBUTE, locale);
 		
 		return SUCCESS;
 	}
@@ -93,6 +98,14 @@ public class AccountAction extends ActionSupport implements SessionAware {
 	public void setAccountService(AccountService accountService) {
 		this.accountService = accountService;
 	}
+	public LanguageService getLanguageService() {
+		return languageService;
+	}
+
+	public void setLanguageService(LanguageService languageService) {
+		this.languageService = languageService;
+	}
+
 	public Map<String, Object> getSession() {
 		return session;
 	}

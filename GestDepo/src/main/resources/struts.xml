@@ -13,7 +13,7 @@
 			<interceptor-stack name="loginStack">
 				<interceptor-ref name="loginInterceptor" />
 				<interceptor-ref name="defaultStack" />
-			</interceptor-stack>
+			</interceptor-stack>			
 		</interceptors>
 		
 		<action name="/" class="homeActionBean">

@@ -34,14 +34,5 @@ public class AccountServiceImpl implements AccountService {
 		rols.add(new Rol(3, "Player", "ES"));
 		return rols;
 	}
-
-	@Override
-	public List<Locale> getPossibleLanguages() {
-		List<Locale> languages = new ArrayList<Locale>();
-		languages.add(new Locale("es"));
-		languages.add(new Locale("en"));
-		return languages;
-	}
-
 	
 }

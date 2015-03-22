@@ -43,15 +43,22 @@
 	-->
 	
 	<bean id="accountService" class="com.gestdepo.model.service.dummyimpl.AccountServiceImpl" />
+	<bean id="languageService" class="com.gestdepo.model.service.dummyimpl.LanguageServiceImpl" />
 	
 	<bean id="testActionBean" scope="prototype" class="com.gestdepo.controller.TestAction" />
-	<bean id="homeActionBean" scope="prototype" class="com.gestdepo.controller.actions.HomeAction" />
+	
+	<bean id="localeActionBean" scope="prototype" class="com.gestdepo.controller.actions.LocaleAction" />
+	<bean id="homeActionBean" scope="prototype" class="com.gestdepo.controller.actions.HomeAction" >
+		<property name="accountService" ref="accountService" />
+		<property name="languageService" ref="languageService" />
+	</bean>
 	<bean id="loginActionBean" scope="prototype" class="com.gestdepo.controller.actions.LoginAction" >
 		<property name="accountService" ref="accountService" />
 	</bean>
 	
 	<bean id="accountActionBean" scope="prototype" class="com.gestdepo.controller.actions.AccountAction" >
 		<property name="accountService" ref="accountService" />
+		<property name="languageService" ref="languageService" />
 	</bean>
 	
 	
