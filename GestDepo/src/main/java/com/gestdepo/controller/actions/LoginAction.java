@@ -45,7 +45,7 @@ public class LoginAction extends ActionSupport implements SessionAware {
 			ActionContext.getContext().setLocale(locale);
 			session.put(I18nInterceptor.DEFAULT_SESSION_ATTRIBUTE, locale);
 			
-			session.put("loginId", userVO.getUserName());
+			session.put("loginId", userVO.getUserId());
 		} catch (NoUserException nue) {
 			addActionError(getText("login.error"));
 		}

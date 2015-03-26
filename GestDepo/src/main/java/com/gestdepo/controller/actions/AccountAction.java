@@ -16,7 +16,6 @@ import com.gestdepo.model.service.LanguageService;
 import com.gestdepo.model.vo.Rol;
 import com.gestdepo.model.vo.UserVO;
 import com.gestdepo.utils.AccountUtils;
-import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class AccountAction extends ActionSupport implements SessionAware {

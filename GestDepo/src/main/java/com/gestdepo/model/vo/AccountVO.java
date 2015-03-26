@@ -6,6 +6,12 @@ public abstract class AccountVO {
 	private String password;
 	private String email;
 	
+	public AccountVO() {
+		this.setUserName("userName");
+		this.setEmail("Email");
+		this.setPassword("pwd");
+	}
+	
 	public String getUserName() {
 		return userName;
 	}

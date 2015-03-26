@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
+<%@ taglib prefix="s" uri="/struts-tags"%>
 
 <!DOCTYPE html>
 <html>
@@ -7,7 +8,8 @@
 <title>GestDepo</title>
 </head>
 <body>
-	<a href="homeAction">Home</a>
+	
+	<s:a action="homeAction" id="homeLink"><s:text name="application.home" /></s:a>
 	
 </body>
 </html>

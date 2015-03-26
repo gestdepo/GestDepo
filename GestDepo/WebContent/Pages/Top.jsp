@@ -1,7 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 
-<h2><s:text name="application.name" /></h2>
+<h1><s:text name="application.name" /></h1>
 
 <s:if test="#session.loginId != null">
 	<s:actionmessage />

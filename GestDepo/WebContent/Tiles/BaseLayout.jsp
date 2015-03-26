@@ -1,4 +1,6 @@
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
+
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -7,9 +9,22 @@
 		<tiles:insertAttribute name="header" />
 	</head>
 	<body>
-		<tiles:insertAttribute name="top" />
-		<tiles:insertAttribute name="menu" />
-		<tiles:insertAttribute name="body" />
-		<tiles:insertAttribute name="footer" />
+		<div id="top">
+			<tiles:insertAttribute name="top" />
+		</div>
+		
+		<s:if test="#session.loginId != null">
+			<div id="menu">
+				<tiles:insertAttribute name="menu" />
+			</div>
+		</s:if>
+		
+		<div id="body">
+			<tiles:insertAttribute name="body" />
+		</div>
+		
+		<div id="footer">
+			<tiles:insertAttribute name="footer" />
+		</div>
 	</body>
 </html>

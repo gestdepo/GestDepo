@@ -12,8 +12,8 @@ import com.gestdepo.model.vo.UserVO;
 public class AccountServiceImpl implements AccountService {
 
 	@Override
-	public UserVO loginUser(String email, String userName, String pwd) throws NoUserException {
-		return new UserVO(email, userName, pwd, "DummyName", "DummyLastName", "", new Locale("ES"), new ArrayList<Rol>());
+	public UserVO loginUser(long userId, String email, String userName, String pwd) throws NoUserException {
+		return new UserVO(userId, email, userName, pwd, "DummyName", "DummyLastName", "", new Locale("ES"), new ArrayList<Rol>());
 	}
 
 	@Override
@@ -23,6 +23,7 @@ public class AccountServiceImpl implements AccountService {
 
 	@Override
 	public UserVO createAccount(UserVO userVO) {
+		userVO.setUserId(0l);
 		return userVO;
 	}
 
@@ -33,6 +34,11 @@ public class AccountServiceImpl implements AccountService {
 		rols.add(new Rol(2, "Coach", "ES"));
 		rols.add(new Rol(3, "Player", "ES"));
 		return rols;
+	}
+
+	@Override
+	public UserVO getLogedUser(long loginId) {
+		return new UserVO();
 	}
 	
 }

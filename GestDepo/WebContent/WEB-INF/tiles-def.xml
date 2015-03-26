@@ -27,9 +27,18 @@
 		<put-attribute name="body" value="/Pages/User/newUserForm.jsp" />
 	</definition>
 	
+	<definition name="/tiles.manage.seasons" extends="baseLayout">
+		<put-attribute name="title" value="New User" />
+		<put-attribute name="body" value="/Pages/Season/manageSeasons.jsp" />
+	</definition>
+	
+	<definition name="/tiles.plan.seasons" extends="baseLayout">
+		<put-attribute name="title" value="Test Page" />
+		<put-attribute name="body" value="/Pages/Season/detailSeason.jsp" />
+	</definition>
+	
 	<definition name="/tiles.test" extends="baseLayout">
 		<put-attribute name="title" value="Test Page" />
 		<put-attribute name="body" value="/Pages/test.jsp" />
 	</definition>
-	
 </tiles-definitions>
