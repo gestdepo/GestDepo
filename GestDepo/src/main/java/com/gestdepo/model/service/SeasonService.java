@@ -2,6 +2,7 @@ package com.gestdepo.model.service;
 
 import java.util.List;
 
+import com.gestdepo.model.vo.EventVO;
 import com.gestdepo.model.vo.SeasonVO;
 
 public interface SeasonService {
@@ -13,5 +14,4 @@ public interface SeasonService {
 	String deleteSeason(long seasonId);
 	
 	SeasonVO getSeason(long seasonId);
-
 }

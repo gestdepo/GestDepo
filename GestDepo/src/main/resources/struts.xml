@@ -47,6 +47,7 @@
 	
 	<include file="struts-account.xml" />
 	<include file="struts-season.xml" />
+	<include file="struts-events.xml" />
 	
 	<package name="tests" extends="custom-default">
 		<!-- login action -->

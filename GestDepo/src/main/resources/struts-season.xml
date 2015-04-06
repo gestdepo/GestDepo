@@ -28,7 +28,6 @@
 			<result name="error" type="tiles">/tiles.plan.seasons</result>
 			<result name="success" type="tiles">/tiles.plan.seasons</result>
 		</action>
-		
 	</package>
 	
 </struts>

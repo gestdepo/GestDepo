@@ -69,6 +69,6 @@
 			onSelect: function(selected) {
 				jQuery("#startDate").datepicker("option","maxDate", selected)
 			}
-		}); 
+		});
 	});
 </script>
