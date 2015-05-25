@@ -46,6 +46,7 @@
 	<bean id="languageService" class="com.gestdepo.model.service.dummyimpl.LanguageServiceImpl" />
 	<bean id="seasonService" class="com.gestdepo.model.service.dummyimpl.SeasonServiceImpl" />
 	<bean id="eventService" class="com.gestdepo.model.service.dummyimpl.EventServiceImpl" />
+	<bean id="exerciseService" class="com.gestdepo.model.service.dummyimpl.ExerciseServiceImpl" />
 	
 	<bean id="testActionBean" scope="prototype" class="com.gestdepo.controller.TestAction" />
 	
@@ -78,6 +79,11 @@
 		<property name="accountService" ref="accountService" />
 		<property name="seasonService" ref="seasonService" />
 		<property name="eventService" ref="eventService" />
+	</bean>
+	
+	<bean id="exerciseManagementActionBean" scope="prototype" class="com.gestdepo.controller.actions.ExerciseManagementAction" >
+		<property name="accountService" ref="accountService" />
+		<property name="exerciseService" ref="exerciseService" />
 	</bean>
 	
 </beans>

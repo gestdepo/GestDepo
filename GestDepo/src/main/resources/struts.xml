@@ -33,6 +33,7 @@
 		<!-- login action -->
 		<action name="loginUser" class="loginActionBean" method="login">
 			<result name="success" type="redirect">homeAction</result>
+			<result name="error" type="tiles">/tiles.homeLogout</result>
 			<result name="input" type="tiles">/tiles.homeLogout</result>
 			<result name="login" type="tiles">/tiles.homeLogout</result>
 		</action>
@@ -48,6 +49,7 @@
 	<include file="struts-account.xml" />
 	<include file="struts-season.xml" />
 	<include file="struts-events.xml" />
+	<include file="struts-exercise.xml" />
 	
 	<package name="tests" extends="custom-default">
 		<!-- login action -->

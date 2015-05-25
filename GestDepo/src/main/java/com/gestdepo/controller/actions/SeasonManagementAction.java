@@ -1,7 +1,6 @@
 package com.gestdepo.controller.actions;
 
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -10,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.interceptor.SessionAware;
 
+import com.gestdepo.model.exception.NoUserException;
 import com.gestdepo.model.service.AccountService;
 import com.gestdepo.model.service.SeasonService;
 import com.gestdepo.model.vo.SeasonVO;
@@ -36,20 +36,23 @@ public class SeasonManagementAction extends ActionSupport implements SessionAwar
 	
 	public String preSaveSeason() {
 		long loginId = (long) session.get("loginId");
-		this.setUserVO(accountService.getLogedUser(loginId));
-		
-		// 1A. IF THE SEASONID IS NULL THEN WE ARE GOING TO CREATE A NEW SEASON
-		if (this.seasonId == null) {
-			this.setSeasonVO(new SeasonVO());
-			this.getSeasonVO().setCoachId(this.userVO.getUserId());
-		} else {
-		// 1B. OTHERWISE, WE ARE GOING TO UPDATE A SEASON
-			this.setSeasonVO(seasonService.getSeason(Long.parseLong(this.seasonId)));
+		try {
+			this.setUserVO(accountService.getLogedUser(loginId));
+			
+			// 1A. IF THE SEASONID IS NULL THEN WE ARE GOING TO CREATE A NEW SEASON
+			if (this.seasonId == null) {
+				this.setSeasonVO(new SeasonVO());
+				this.getSeasonVO().setCoachId(this.userVO.getUserId());
+			} else {
+			// 1B. OTHERWISE, WE ARE GOING TO UPDATE A SEASON
+				this.setSeasonVO(seasonService.getSeason(Long.parseLong(this.seasonId)));
+			}
+			
+			// 2. LOAD THE SEASONS FROM DB
+			this.setSeasons(seasonService.getCoachSeasions(this.userVO.getUserId()));
+		} catch (NoUserException e) {
+			addActionError(getText("login.error"));
 		}
-		
-		// 2. LOAD THE SEASONS FROM DB
-		this.setSeasons(seasonService.getCoachSeasions(this.userVO.getUserId()));
-		
 		return SUCCESS;
 	}
 

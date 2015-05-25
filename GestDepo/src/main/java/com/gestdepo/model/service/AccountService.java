@@ -12,7 +12,7 @@ public interface AccountService {
 	public UserVO loginUser(long userId, String email, String userName, String pwd) throws NoUserException;
 	public UserVO loginUser(UserVO userVO) throws NoUserException;
 
-	public UserVO getLogedUser(long loginId);
+	public UserVO getLogedUser(long loginId) throws NoUserException;
 	
 	public UserVO createAccount(UserVO userVO);
 	

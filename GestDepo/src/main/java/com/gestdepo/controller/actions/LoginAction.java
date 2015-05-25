@@ -39,7 +39,7 @@ public class LoginAction extends ActionSupport implements SessionAware {
 	// Login user
 	public String login() {
 		try {
-			accountService.loginUser(userVO);
+			userVO = accountService.loginUser(userVO);
 			
 			Locale locale = userVO.getLocale();
 			ActionContext.getContext().setLocale(locale);
@@ -48,6 +48,7 @@ public class LoginAction extends ActionSupport implements SessionAware {
 			session.put("loginId", userVO.getUserId());
 		} catch (NoUserException nue) {
 			addActionError(getText("login.error"));
+			return ERROR;
 		}
 		return SUCCESS;
 	}

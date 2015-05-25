@@ -7,6 +7,7 @@ import java.util.Locale;
 public class UserVO extends AccountVO {
 	
 	private long userId;
+	private long clubId;
 	private String name;
 	private String lastName;
 	private String passwordRepeat;
@@ -17,6 +18,7 @@ public class UserVO extends AccountVO {
 	
 	public UserVO() {
 		this.setUserId(0l);
+		this.setClubId(0l);
 		this.setEmail("");
 		this.setUserName("");
 		this.setPassword("");
@@ -30,8 +32,9 @@ public class UserVO extends AccountVO {
 		this.setRols(new ArrayList<Rol>());
 	}
 
-	public UserVO(Long userId, String email, String userName, String password, String name, String lastName, String passwordRepeated, Locale locale, List<Rol> rols) {
+	public UserVO(long userId, long clubId, String email, String userName, String password, String name, String lastName, String passwordRepeated, Locale locale, List<Rol> rols) {
 		this.setUserId(userId);
+		this.setClubId(clubId);
 		this.setEmail(email);
 		this.setUserName(userName);
 		this.setPassword(password);
@@ -43,11 +46,6 @@ public class UserVO extends AccountVO {
 		this.setLocale(locale);
 		
 		this.setRols(rols);
-		
-	}
-
-	public UserVO(UserVO userVO) {
-		new UserVO(userVO.getUserId(), userVO.getEmail(), userVO.getUserName(), userVO.getPassword(), userVO.getName(), userVO.getLastName(), userVO.getPasswordRepeat(), userVO.getLocale(), userVO.getRols());
 	}
 	
 	public long getUserId() {
@@ -56,6 +54,14 @@ public class UserVO extends AccountVO {
 
 	public void setUserId(long userId) {
 		this.userId = userId;
+	}
+
+	public long getClubId() {
+		return clubId;
+	}
+
+	public void setClubId(long clubId) {
+		this.clubId = clubId;
 	}
 
 	public String getName() {

@@ -6,12 +6,13 @@
 
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/styles/FullCalendar/fullcalendar.css">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/styles/FullCalendar/fullcalendar.print.css" media="print">
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/styles/FullCalendar/jquery.timepicker.css">
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/styles/TimePicker/jquery.timepicker.css">
 
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/libs/fullcalendar.min.js" ></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/libs/lang-all.js" ></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/libs/jquery.timepicker.min.js" ></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/libs/datepair.js" ></script>
+		
 
 <h2>
 	<s:property value="seasonVO.name" />
@@ -38,8 +39,11 @@
 			<s:textfield id="endEventDate" name="end" cssClass="time end" key="create.event.end.date" />
 		</p>
 		
-		<script type="text/javascript" src="datepair.js"></script>
-		<script type="text/javascript" src="jquery.datepair.js"></script>
+		<input type="radio" name="eventType" value="1" id="eventTypeTraining" >
+		<label for="eventTypeTraining">Training</label>
+		<input type="radio" name="eventType" value="2" id="eventTypeGame" >
+		<label for="eventTypeGame">Game</label>
+		
 		
 		<s:submit />
 	</s:form>
@@ -64,7 +68,7 @@
 			weekNumbers: true,
 			events: [
 				<c:forEach var='event' items='${events}'>
-					{ title: '${event.title}', start: new Date(${event.start}), end: new Date(${event.end}) },
+					{ id:'${event.eventId}', title: '${event.title}', start: new Date(${event.start}), end: new Date(${event.end}), editable: true },
 				</c:forEach>
 			],
 			dayClick: function(date, jsEvent, view) {
@@ -83,6 +87,9 @@
 			    jQuery('input#startEventDate').timepicker();
 				jQuery('input#endEventDate').timepicker();
 				jQuery('#newEvent').dialog();
+			},
+			eventClick: function(event) {
+		        alert(this.id);
 			}
 		})
 		
@@ -94,7 +101,7 @@
 				url: jQuery("#saveEvent").attr("action"),
 				data: formData, // serializes the form's elements.
 				success: function(data) {
-					alert("Success: " + data.eventoVO); // show response from the script.
+					//alert("Success: " + data.eventoVO); // show response from the script.
 					
 					var source = { title: '${data.title}', start: new Date(${data.start}), end: new Date(${data.end}) };
 					alert(source);

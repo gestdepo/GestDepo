@@ -11,6 +11,7 @@ import com.gestdepo.model.service.AccountService;
 import com.gestdepo.model.service.EventService;
 import com.gestdepo.model.service.SeasonService;
 import com.gestdepo.model.vo.EventVO;
+import com.gestdepo.model.vo.GameVO;
 import com.gestdepo.model.vo.TrainingVO;
 import com.gestdepo.utils.TimeUtils;
 import com.opensymphony.xwork2.ActionSupport;
@@ -21,6 +22,7 @@ public class EventAction extends ActionSupport implements SessionAware {
 	
 	private EventVO eventVO;
 	private String datePicked;
+	private int eventType;
 	
 	private AccountService accountService;
 	private SeasonService seasonService;
@@ -48,7 +50,11 @@ public class EventAction extends ActionSupport implements SessionAware {
 		long eventIdLong = Long.parseLong((this.eventId==null || this.eventId.equals(""))?"0":this.eventId);
 		long seasonIdLong = Long.parseLong(this.seasonId);
 		
-		this.setEventVO(new TrainingVO(eventIdLong, seasonIdLong, this.title, startLong, endLong));
+		if (eventType == 1) {
+			this.setEventVO(new TrainingVO(eventIdLong, seasonIdLong, this.title, startLong, endLong));
+		} else if (eventType == 2){
+			this.setEventVO(new GameVO(eventIdLong, seasonIdLong, this.title, startLong, endLong));
+		}
 		
 		eventService.saveEvent(this.eventVO);
 		
@@ -108,6 +114,14 @@ public class EventAction extends ActionSupport implements SessionAware {
 
 	public void setEventId(String eventId) {
 		this.eventId = eventId;
+	}
+
+	public int getEventType() {
+		return eventType;
+	}
+
+	public void setEventType(int eventType) {
+		this.eventType = eventType;
 	}
 
 	public void setAccountService(AccountService accountService) {

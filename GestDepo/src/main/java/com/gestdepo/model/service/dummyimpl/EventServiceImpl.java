@@ -19,24 +19,24 @@ public class EventServiceImpl implements EventService {
 	
 	static {
 		//Year, month, day of month, hours, minutes and seconds
-		calStart.set(2015, Calendar.APRIL, 9, 16, 30, 00);
-		calEnd.set(2015, Calendar.APRIL, 9, 18, 30, 00);
+		calStart.set(2015, Calendar.MAY, 9, 16, 30, 00);
+		calEnd.set(2015, Calendar.MAY, 9, 18, 30, 00);
 		events.add(new TrainingVO(1l, 1l, "Training 1", calStart.getTimeInMillis(), calEnd.getTimeInMillis()));
 		
-		calStart.set(2015, Calendar.APRIL, 10, 16, 30, 00);
-		calEnd.set(2015, Calendar.APRIL, 10, 18, 30, 00);
+		calStart.set(2015, Calendar.MAY, 10, 16, 30, 00);
+		calEnd.set(2015, Calendar.MAY, 10, 18, 30, 00);
 		events.add(new TrainingVO(2l, 1l, "Training 2",  calStart.getTimeInMillis(), calEnd.getTimeInMillis()));
 		
-		calStart.set(2015, Calendar.APRIL, 11, 16, 30, 00);
-		calEnd.set(2015, Calendar.APRIL, 11, 18, 30, 00);
+		calStart.set(2015, Calendar.MAY, 11, 16, 30, 00);
+		calEnd.set(2015, Calendar.MAY, 11, 18, 30, 00);
 		events.add(new TrainingVO(3l, 1l, "Training 3", calStart.getTimeInMillis(), calEnd.getTimeInMillis()));
 		
-		calStart.set(2015, Calendar.APRIL, 12, 16, 30, 00);
-		calEnd.set(2015, Calendar.APRIL, 12, 18, 30, 00);
+		calStart.set(2015, Calendar.MAY, 12, 16, 30, 00);
+		calEnd.set(2015, Calendar.MAY, 12, 18, 30, 00);
 		events.add(new TrainingVO(4l, 1l, "Training 4", calStart.getTimeInMillis(), calEnd.getTimeInMillis()));
 		
-		calStart.set(2015, Calendar.APRIL, 14, 15, 00, 00);
-		calEnd.set(2015, Calendar.APRIL, 14, 19, 30, 00);
+		calStart.set(2015, Calendar.MAY, 14, 15, 00, 00);
+		calEnd.set(2015, Calendar.MAY, 14, 19, 30, 00);
 		events.add(new GameVO(5l, 1l, "Game 1",  calStart.getTimeInMillis(), calEnd.getTimeInMillis()));
 	}
 	
